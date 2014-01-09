@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 	
 	def new 
 		@project = Project.new
-		@project.save
+# 		@project.save
 	end
 	
 	def create 
@@ -22,6 +22,23 @@ class ProjectsController < ApplicationController
 	
 	def show
 		@project = Project.find(params[:id])
+	end
+	
+	def edit
+		@project = Project.find(params[:id])
+	end
+	
+	def update 
+		@project = Project.find(params[:id])
+		
+		if @project.update(project_params)
+		
+			flash[:notice] = "Project has been updated."
+			redirect_to @project
+		else
+			flash[:notice] = "Project has not been updated."
+			render "edit"
+		end
 	end
 	
 	private 
