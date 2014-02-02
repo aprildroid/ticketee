@@ -1,5 +1,6 @@
 Ticketee::Application.routes.draw do
 	
+  
 	root "projects#index"
 	
 	get "/signin", to: "sessions#new"
@@ -9,7 +10,10 @@ Ticketee::Application.routes.draw do
 	
 	resources :projects do 
 		resources :tickets
-		
+	end
+	
+	namespace :admin do 
+		resources :users	
 	
 	end
 end
