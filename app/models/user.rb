@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
 	def to_s 
 		"#{email} (#{admin? ? "Admin" : "User"})"
 	end
+	validate :email, presence: true
 end

@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
 			flash[:notice] = "Project has been updated."
 			redirect_to @project
 		else
-			flash[:notice] = "Project has not been updated."
+			flash[:alert] = "Project has not been updated."
 			render "edit"
 		end
 	end
@@ -51,7 +51,6 @@ class ProjectsController < ApplicationController
 
 	
 	private 
-		
 		def project_params
 			params.require(:project).permit(:name, :description)
 		end
